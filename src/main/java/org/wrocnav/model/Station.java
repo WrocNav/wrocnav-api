@@ -2,7 +2,7 @@ package org.wrocnav.model;
 
 public class Station {
     private final long id;
-    private final String name;
+    private String name;
     private final double latitude;
     private final double longitude;
     private final StopType type;
@@ -13,6 +13,11 @@ public class Station {
         this.latitude = latitude;
         this.longitude = longitude;
         this.type = type;
+    }
+
+    public void changeName(String name)
+    {
+        this.name = name;
     }
 
     public long getId() {
