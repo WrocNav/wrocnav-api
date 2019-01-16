@@ -13,15 +13,15 @@ import java.util.Objects;
 
 public class StationXMLParser {
 
+    private static String STATION_LOCATION_CSV_PATH = "open_data_resources/slupkiwspolrzedne.csv";
+
     public static List<Station> parseToList() {
         BufferedReader stationReader = null;
-        String location = "slupkiwspolrzedne.csv";
         String line;
-        String lineSplit = ";";
         List<Station> stations = new ArrayList<>();
 
         try {
-            stationReader = new BufferedReader(new FileReader(location));
+            stationReader = new BufferedReader(new FileReader(STATION_LOCATION_CSV_PATH));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -30,7 +30,7 @@ public class StationXMLParser {
             stationReader.readLine();
 
             while ((line = stationReader.readLine()) != null) {
-                String[] station = line.split(lineSplit);
+                String[] station = line.split(";");
                 StopType type;
 
                 if (Objects.equals(station[3], "3")) {
