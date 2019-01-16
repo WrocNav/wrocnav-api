@@ -6,11 +6,11 @@ public class TimeAtPoint {
     private char daysType;
     private String typeOfTram;
 
-    public TimeAtPoint(int hour, int minutes, String typeoftram, char daystype) {
+    public TimeAtPoint(int hour, int minutes, String typeOfTram, char daysType) {
         this.hour = hour;
         this.minutes = minutes;
-        this.daysType = daystype;
-        this.typeOfTram = typeoftram;
+        this.daysType = daysType;
+        this.typeOfTram = typeOfTram;
     }
 
     public int getHour() {
