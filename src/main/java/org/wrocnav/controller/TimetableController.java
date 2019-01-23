@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.wrocnav.model.Tram;
 import org.wrocnav.utils.xml.TimetableXMLParser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -13,7 +14,12 @@ public class TimetableController {
 
     @RequestMapping("/timetables/{id}")
     public List<Tram> timetables(@PathVariable String id) {
-        return getTimetable(id);
+
+        if(id.matches("^[a-zA-Z0-9]*$")) {
+            return getTimetable(id);
+        }
+
+        return new ArrayList<>();
     }
 
     private List<Tram> getTimetable(String id) {
