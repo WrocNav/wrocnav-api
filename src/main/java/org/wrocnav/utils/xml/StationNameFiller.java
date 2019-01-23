@@ -18,7 +18,12 @@ public class StationNameFiller {
             Map<Long, String> stationIdToNameMap = getStationIdToNameFromFile(STATION_ID_TO_NAME_FILE_PATH);
 
             for(Station station: stations) {
-                station.setName(stationIdToNameMap.get(station.getId()));
+                String name = stationIdToNameMap.get(station.getId());
+
+                if(name == null) {
+                    name = "";
+                }
+                station.setName(name);
             }
 
         } catch (IOException e) {
