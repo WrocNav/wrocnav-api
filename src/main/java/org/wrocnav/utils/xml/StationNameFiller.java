@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -17,15 +18,16 @@ public class StationNameFiller {
         try {
             Map<Long, String> stationIdToNameMap = getStationIdToNameFromFile(STATION_ID_TO_NAME_FILE_PATH);
 
-            for(Station station: stations) {
+            for (Iterator<Station> iterator = stations.iterator(); iterator.hasNext();) {
+                Station station = iterator.next();
                 String name = stationIdToNameMap.get(station.getId());
 
-                if(name == null) {
-                    name = "";
+                if(name == null || name.equals("")) {
+                    iterator.remove();
+                } else {
+                    station.setName(name);
                 }
-                station.setName(name);
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }
