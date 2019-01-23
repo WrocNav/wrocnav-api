@@ -3,20 +3,20 @@ package org.wrocnav.model;
 import java.util.List;
 
 public class Tram {
-    private int number;
+    private String line;
     private int station;
     private int version;
     private List<TimeAtPoint> times;
 
-    public Tram(int number, int station, int version, List<TimeAtPoint> times) {
-        this.number = number;
+    public Tram(String number, int station, int version, List<TimeAtPoint> times) {
+        this.line = number;
         this.station = station;
         this.version = version;
         this.times = times;
     }
 
-    public int getNumber() {
-        return number;
+    public String getLine() {
+        return line;
     }
 
     public int getStation() {
