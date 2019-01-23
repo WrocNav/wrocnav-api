@@ -107,7 +107,7 @@ public class TimetableXMLParser {
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Someone tried to open\" " + xmlFile + "\" file.");
+            System.out.println("Someone tried to open \"" + xmlFile + "\" file.");
         }
         return timetables;
     }
